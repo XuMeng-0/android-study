@@ -14,9 +14,6 @@ public class ActivityA extends AppCompatActivity {
 
   private static final String CLASS_NAME = ActivityA.class.getSimpleName();
 
-  private Button btnFinishFirst;
-  private Button btnFinishLast;
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +21,14 @@ public class ActivityA extends AppCompatActivity {
     LogUtil.e(CLASS_NAME, "==== onCreate =====");
     setContentView(R.layout.finish_start_activity_a);
 
-    btnFinishFirst = findViewById(R.id.finish_start_btn_finish_first);
+    Button btnFinishFirst = findViewById(R.id.finish_start_btn_finish_first);
     btnFinishFirst.setOnClickListener(listener);
-    btnFinishLast = findViewById(R.id.finish_start_btn_finish_last);
+    Button btnFinishLast = findViewById(R.id.finish_start_btn_finish_last);
     btnFinishLast.setOnClickListener(listener);
+    Button btnDelayFinishFirst = findViewById(R.id.finish_start_btn_delay_finish_first);
+    btnDelayFinishFirst.setOnClickListener(listener);
+    Button btnDelayFinishLast = findViewById(R.id.finish_start_btn_delay_finish_last);
+    btnDelayFinishLast.setOnClickListener(listener);
   }
 
   @Override
@@ -66,15 +67,43 @@ public class ActivityA extends AppCompatActivity {
     LogUtil.e(CLASS_NAME, "===== onDestroy =====");
   }
 
+  private void executeTimeConsumingTask() {
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
   private View.OnClickListener listener = new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-      if (view.getId() == R.id.finish_start_btn_finish_first) {
-        finish();
-        startActivity(new Intent(ActivityA.this, ActivityB.class));
-      } else {
-        startActivity(new Intent(ActivityA.this, ActivityB.class));
-        finish();
+      switch (view.getId()) {
+        case R.id.finish_start_btn_finish_first: {
+          finish();
+          startActivity(new Intent(ActivityA.this, ActivityB.class));
+        }
+        break;
+        case R.id.finish_start_btn_finish_last: {
+          startActivity(new Intent(ActivityA.this, ActivityB.class));
+          finish();
+        }
+        break;
+        case R.id.finish_start_btn_delay_finish_first: {
+          finish();
+          executeTimeConsumingTask();
+          startActivity(new Intent(ActivityA.this, ActivityB.class));
+        }
+        break;
+        case R.id.finish_start_btn_delay_finish_last: {
+          startActivity(new Intent(ActivityA.this, ActivityB.class));
+          executeTimeConsumingTask();
+          finish();
+        }
+        break;
+        default: {
+
+        }
       }
     }
   };
