@@ -13,7 +13,10 @@ import pers.xumeng.androidstudy.util.LogUtil;
 public class ActivityB extends AppCompatActivity {
 
   private static final String CLASS_NAME = ActivityB.class.getSimpleName();
-
+  //不会导致Activity生命周期方法调用顺序改变
+  private static final int TASK_DURATION_NO_EFFECT = 400;
+  //会导致Activity生命周期方法调用顺序改变
+  private static final int TASK_DURATION_EFFECT = 500;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +72,7 @@ public class ActivityB extends AppCompatActivity {
 
   private void executeTimeConsumingTask() {
     try {
-      Thread.sleep(1000);
+      Thread.sleep(TASK_DURATION_EFFECT);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

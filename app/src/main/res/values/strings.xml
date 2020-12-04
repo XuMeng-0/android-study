@@ -1,11 +1,15 @@
 <resources>
   <string name="app_name">AndroidStudy</string>
 
+  <string name="finish_start_activity_a">ActivityA</string>
+  <string name="finish_start_btn_text_start_b">启动ActivityB</string>
+  
   <string name="finish_start_activity_b">ActivityB</string>
   <string name="finish_start_btn_text_first_finish">先finish</string>
   <string name="finish_start_btn_text_last_finish">后finish</string>
   <string name="finish_start_btn_text_delay_first_finish">先finish+耗时</string>
   <string name="finish_start_btn_text_delay_last_finish">后finish+耗时</string>
+
   <string name="finish_start_activity_c">ActivityC</string>
   <string name="finish_start_btn_text_finish">finish</string>
 </resources>
