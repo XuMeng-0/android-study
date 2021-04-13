@@ -42,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
           }
           break;
         }
-        /*if ("finish and startActivity".equals(content[position])) {
-          startActivity(new Intent(MainActivity.this, ActivityA.class));
-        } else {
-          startActivity(new Intent(MainActivity.this, pers.xumeng.androidstudy.exit.ActivityA.class));
-        }*/
         startActivity(intent);
         finish();
       }
