@@ -21,6 +21,12 @@
     <activity android:name=".finishandstartactivity.ActivityB" />
     <activity android:name=".finishandstartactivity.ActivityC" />
 
+    <activity
+        android:name=".exit.ActivityA"
+        android:launchMode="singleTask" />
+    <activity android:name=".exit.ActivityB" />
+    <activity android:name=".exit.ActivityC" />
+
   </application>
 
 </manifest>

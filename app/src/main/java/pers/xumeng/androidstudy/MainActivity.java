@@ -16,7 +16,7 @@ import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
 
 public class MainActivity extends AppCompatActivity {
 
-  private String[] content = {"finish and startActivity", "exit application"};
+  private String[] content = {"finish and start activity", "exit application"};
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,13 +30,25 @@ public class MainActivity extends AppCompatActivity {
     lvContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        if("finish and startActivity".equals(content[position])){
-          startActivity(new Intent(MainActivity.this, ActivityA.class));
-          finish();
-        }else{
-          //TODO
-          Toast.makeText(MainActivity.this, "exit application", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent();
+        switch (content[position]) {
+          case "finish and start activity": {
+            intent.setClass(MainActivity.this, ActivityA.class);
+          }
+          break;
+
+          case "exit application": {
+            intent.setClass(MainActivity.this, pers.xumeng.androidstudy.exit.ActivityA.class);
+          }
+          break;
         }
+        /*if ("finish and startActivity".equals(content[position])) {
+          startActivity(new Intent(MainActivity.this, ActivityA.class));
+        } else {
+          startActivity(new Intent(MainActivity.this, pers.xumeng.androidstudy.exit.ActivityA.class));
+        }*/
+        startActivity(intent);
+        finish();
       }
     });
   }

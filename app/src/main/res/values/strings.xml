@@ -1,9 +1,10 @@
 <resources>
   <string name="app_name">AndroidStudy</string>
 
+
   <string name="finish_start_activity_a">ActivityA</string>
   <string name="finish_start_btn_text_start_b">启动ActivityB</string>
-  
+
   <string name="finish_start_activity_b">ActivityB</string>
   <string name="finish_start_btn_text_first_finish">先finish</string>
   <string name="finish_start_btn_text_last_finish">后finish</string>
@@ -12,4 +13,14 @@
 
   <string name="finish_start_activity_c">ActivityC</string>
   <string name="finish_start_btn_text_finish">finish</string>
+
+
+  <string name="exit_activity_a_text">点击返回键退出应用</string>
+  <string name="exit_btn_text_start_b">启动ActivityB</string>
+
+  <string name="exit_activity_b_text">ActivityB</string>
+  <string name="exit_btn_text_start_c">启动ActivityC</string>
+
+  <string name="exit_activity_c_text">ActivityC</string>
+  <string name="exit_btn_text_start_a">启动ActivityA</string>
 </resources>
