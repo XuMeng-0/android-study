@@ -14,12 +14,15 @@ public class BaseActivity extends AppCompatActivity {
   @Override
   protected void onStop() {
     super.onStop();
+    SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
     if (isEnableStatusRestore) {
-      SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-      SharedPreferences.Editor editor = sharedPreferences.edit();
       editor.putInt("activityCode", activityCode);
-      editor.apply();
+    } else {
+      int invalidActivityCode = 0;
+      editor.putInt("activityCode", invalidActivityCode);
     }
+    editor.apply();
   }
 
   public int getActivityCode() {
