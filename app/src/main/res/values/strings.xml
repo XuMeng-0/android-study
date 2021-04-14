@@ -23,4 +23,14 @@
 
   <string name="exit_activity_c_text">ActivityC</string>
   <string name="exit_btn_text_start_a">启动ActivityA</string>
+
+
+  <string name="status_restore_activity_a_text">ActivityA</string>
+  <string name="status_restore_btn_text_start_b">启动ActivityB</string>
+
+  <string name="status_restore_activity_b_text">ActivityB</string>
+  <string name="status_restore_btn_text_start_c">启动ActivityC</string>
+
+  <string name="status_restore_activity_c_text">ActivityC</string>
+  <string name="status_restore_btn_text_start_a">启动ActivityA</string>
 </resources>

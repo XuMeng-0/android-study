@@ -27,6 +27,12 @@
     <activity android:name=".exit.ActivityB" />
     <activity android:name=".exit.ActivityC" />
 
+    <activity
+        android:name=".statusrestore.ActivityA"
+        android:launchMode="singleTask" />
+    <activity android:name=".statusrestore.ActivityB" />
+    <activity android:name=".statusrestore.ActivityC" />
+
   </application>
 
 </manifest>
