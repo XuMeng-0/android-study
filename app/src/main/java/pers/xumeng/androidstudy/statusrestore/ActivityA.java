@@ -31,12 +31,13 @@ public class ActivityA extends BaseActivity {
   }
 
   private void restoreActivity() {
+    int invalidActivityCode = 0;
     SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-    int activityCode = sharedPreferences.getInt("activityCode", 0);
-    if (activityCode == 0) {
+    int activityCode = sharedPreferences.getInt("activityCode", invalidActivityCode);
+    if (activityCode == invalidActivityCode) {
       return;
     }
-    if (activityCode == 33) {
+    if (activityCode == ActivityCodeUtil.STATUS_RESTORE_ACTIVITY_C) {
       startActivity(new Intent(this, ActivityC.class));
     }
   }
