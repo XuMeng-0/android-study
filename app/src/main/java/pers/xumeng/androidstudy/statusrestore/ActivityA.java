@@ -34,9 +34,6 @@ public class ActivityA extends BaseActivity {
     int invalidActivityCode = 0;
     SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
     int activityCode = sharedPreferences.getInt("activityCode", invalidActivityCode);
-    if (activityCode == invalidActivityCode) {
-      return;
-    }
     if (activityCode == ActivityCodeUtil.STATUS_RESTORE_ACTIVITY_C) {
       startActivity(new Intent(this, ActivityC.class));
     }

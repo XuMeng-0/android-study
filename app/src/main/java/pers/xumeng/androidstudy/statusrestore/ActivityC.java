@@ -17,7 +17,6 @@ public class ActivityC extends BaseActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     super.setActivityCode(ActivityCodeUtil.STATUS_RESTORE_ACTIVITY_C);
-    super.enableStatusRestore();
     setContentView(R.layout.status_restore_activity_c);
     Button startActivityBtn = findViewById(R.id.status_restore_btn_start_activity_a);
     startActivityBtn.setOnClickListener(new View.OnClickListener() {
