@@ -10,11 +10,13 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
 
 public class MainActivity extends AppCompatActivity {
 
-  private String[] content = {"finish and start activity", "exit application", "force exit and status restore"};
+  private String[] content = {"finish and start activity", "exit application",
+          "force exit and status restore", "use camera"};
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
           case "force exit and status restore": {
             intent.setClass(MainActivity.this, pers.xumeng.androidstudy.statusrestore.ActivityA.class);
+          }
+          break;
+
+          case "use camera": {
+            intent.setClass(MainActivity.this, RequestImageActivity.class);
           }
           break;
         }

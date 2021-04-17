@@ -33,4 +33,8 @@
 
   <string name="status_restore_activity_c_text">ActivityC</string>
   <string name="status_restore_btn_text_start_a">启动ActivityA</string>
+
+
+  <string name="camera_btn_text_return_image">拍照-返回缩略图</string>
+  <string name="camera_btn_text_save_to_file">拍照-保存到文件</string>
 </resources>

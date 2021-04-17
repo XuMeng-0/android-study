@@ -33,6 +33,26 @@
     <activity android:name=".statusrestore.ActivityB" />
     <activity android:name=".statusrestore.ActivityC" />
 
+    <activity android:name=".camera.RequestImageActivity" />
+
+
+    <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="pers.xumeng.androidstudy.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/file_paths" />
+    </provider>
   </application>
+
+  <uses-feature
+      android:name="android.hardware.camera"
+      android:required="true" />
+
+  <uses-permission
+      android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+      android:maxSdkVersion="18" />
 
 </manifest>
