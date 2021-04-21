@@ -26,6 +26,7 @@ public class RequestImageActivity extends AppCompatActivity {
 
   private static final int REQUEST_IMAGE_CAPTURE = 1;
   private static final int REQUEST_TAKE_PHOTO = 2;
+  private static final int REQUEST_TAKE_PHOTO_ADD_TO_GALLERY = 3;
   private static final String CLASS_NAME = RequestImageActivity.class.getSimpleName();
 
   private ImageView imageView;
@@ -36,8 +37,12 @@ public class RequestImageActivity extends AppCompatActivity {
     public void onClick(View view) {
       if (view.getId() == R.id.camera_btn_start_activity_return_image) {
         takePictureReturnThumbnailImage();
-      } else {
+      }
+      if (view.getId() == R.id.camera_btn_start_activity_save_to_file) {
         takePictureSaveToFile();
+      }
+      if (view.getId() == R.id.camera_btn_start_activity_add_to_gallery) {
+        takePictureAddToGallery();
       }
     }
   };
@@ -51,6 +56,8 @@ public class RequestImageActivity extends AppCompatActivity {
     returnImageBtn.setOnClickListener(listener);
     Button saveToFileBtn = findViewById(R.id.camera_btn_start_activity_save_to_file);
     saveToFileBtn.setOnClickListener(listener);
+    Button addToGalleryBtn = findViewById(R.id.camera_btn_start_activity_add_to_gallery);
+    addToGalleryBtn.setOnClickListener(listener);
   }
 
   @Override
@@ -66,6 +73,15 @@ public class RequestImageActivity extends AppCompatActivity {
       imageView.setImageBitmap(imageBitmap);
     }
     if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+      addPictureToGallery();
+      if (data == null) {
+        LogUtil.e(CLASS_NAME, "data is null");
+      }
+      File file = new File(currentPhotoPath);
+      Uri contentUri = Uri.fromFile(file);
+      imageView.setImageURI(contentUri);
+    }
+    if (requestCode == REQUEST_TAKE_PHOTO_ADD_TO_GALLERY && resultCode == RESULT_OK) {
       addPictureToGallery();
       if (data == null) {
         LogUtil.e(CLASS_NAME, "data is null");
@@ -122,7 +138,45 @@ public class RequestImageActivity extends AppCompatActivity {
     return image;
   }
 
-  //TODO 预期作用为把照片添加到相册，尚未实现
+  private void takePictureAddToGallery() {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    // Ensure that there's a camera activity to handle the intent
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+      // Create the File where the photo should go
+      File photoFile = null;
+      try {
+        photoFile = createPublicDirectoryImageFile();
+      } catch (IOException ex) {
+        ex.printStackTrace();
+        //LogUtil.e(CLASS_NAME, "Error occurred while creating the File");
+      }
+      // Continue only if the File was successfully created
+      if (photoFile != null) {
+        Uri photoURI = FileProvider.getUriForFile(this, "pers.xumeng.androidstudy.fileprovider", photoFile);
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+        startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO_ADD_TO_GALLERY);
+      }
+    }
+  }
+
+  private File createPublicDirectoryImageFile() throws IOException {
+    // Create an image file name
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+    String imageFileName = "JPEG_" + timeStamp + "_";
+    File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+    if (storageDir != null) {
+      LogUtil.e(CLASS_NAME, "Environment.getExternalStoragePublicDirectory" + "(Environment.DIRECTORY_PICTURES) path:" + storageDir.getAbsolutePath());
+    }
+    File image = File.createTempFile(imageFileName,  /* prefix */
+            ".jpg",         /* suffix */
+            storageDir      /* directory */);
+
+    // Save a file: path for use with ACTION_VIEW intents
+    currentPhotoPath = image.getAbsolutePath();
+    LogUtil.e(CLASS_NAME, "currentPhotoPath:" + currentPhotoPath);
+    return image;
+  }
+
   private void addPictureToGallery() {
     Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
     File file = new File(currentPhotoPath);
@@ -130,4 +184,6 @@ public class RequestImageActivity extends AppCompatActivity {
     mediaScanIntent.setData(contentUri);
     this.sendBroadcast(mediaScanIntent);
   }
+
+
 }

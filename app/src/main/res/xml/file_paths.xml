@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
+  <!-- external-files-path 对应的实际路径 /storage/emulated/0/Android/data/<package_name>/files -->
+  <!-- 配置的图片保存的位置 /storage/emulated/0/Android/data/<package_name>/files/Pictures -->
   <external-files-path
       name="my_images"
+      path="/Pictures" />
+
+  <!-- external-path 对应的实际路径 /storage/emulated/0 -->
+  <!-- 配置的图片保存的位置 /storage/emulated/0/Pictures -->
+  <external-path
+      name="public_images"
       path="/Pictures" />
 </paths>
     

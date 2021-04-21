@@ -6,9 +6,18 @@
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
+      android:requestLegacyExternalStorage="true"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
+    <!--
+    android:requestLegacyExternalStorage="true"
+    在 Android 10 (API 29) 出于安全性的考虑，推出了 分区存储 这一新的存储范例
+    弃用了 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) 方法;
+    这个方法在 拍照并添加到相册 这一功能的实现中需要用到，尚未找到更好的替代方案，所以使用
+    android:requestLegacyExternalStorage="true" 暂时停用分区存储特性。
+    https://developer.android.google.cn/training/data-storage/use-cases
+    -->
 
     <activity android:name=".MainActivity">
       <intent-filter>
@@ -51,8 +60,6 @@
       android:name="android.hardware.camera"
       android:required="true" />
 
-  <uses-permission
-      android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-      android:maxSdkVersion="18" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

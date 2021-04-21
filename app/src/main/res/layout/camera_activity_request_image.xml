@@ -15,7 +15,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.8" />
+      app:layout_constraintVertical_bias="0.7" />
 
   <Button
       android:id="@+id/camera_btn_start_activity_save_to_file"
@@ -23,6 +23,19 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/textViewPadding"
       android:text="@string/camera_btn_text_save_to_file"
+      android:textSize="@dimen/textSize"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.8" />
+
+  <Button
+      android:id="@+id/camera_btn_start_activity_add_to_gallery"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/textViewPadding"
+      android:text="@string/camera_btn_text_add_to_gallery"
       android:textSize="@dimen/textSize"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"

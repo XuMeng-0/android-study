@@ -37,4 +37,5 @@
 
   <string name="camera_btn_text_return_image">拍照-返回缩略图</string>
   <string name="camera_btn_text_save_to_file">拍照-保存到文件</string>
+  <string name="camera_btn_text_add_to_gallery">拍照-添加到相册</string>
 </resources>
