@@ -1,17 +1,26 @@
 package pers.xumeng.androidstudy.camera;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import java.io.File;
@@ -27,6 +36,7 @@ public class RequestImageActivity extends AppCompatActivity {
   private static final int REQUEST_IMAGE_CAPTURE = 1;
   private static final int REQUEST_TAKE_PHOTO = 2;
   private static final int REQUEST_TAKE_PHOTO_ADD_TO_GALLERY = 3;
+  private static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 1;
   private static final String CLASS_NAME = RequestImageActivity.class.getSimpleName();
 
   private ImageView imageView;
@@ -42,7 +52,24 @@ public class RequestImageActivity extends AppCompatActivity {
         takePictureSaveToFile();
       }
       if (view.getId() == R.id.camera_btn_start_activity_add_to_gallery) {
-        takePictureAddToGallery();
+        if (ContextCompat.checkSelfPermission(RequestImageActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+          takePictureAddToGallery();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+          if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            AlertDialog dialog = new AlertDialog.Builder(RequestImageActivity.this).create();
+            dialog.setTitle("提示");
+            dialog.setMessage("需要保存照片，请授予应用将数据写入外部存储的权限");
+            dialog.setButton(Dialog.BUTTON_POSITIVE, "好的", new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialogInterface, int i) {
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+              }
+            });
+            dialog.show();
+          } else {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+          }
+        }
       }
     }
   };
@@ -89,6 +116,17 @@ public class RequestImageActivity extends AppCompatActivity {
       File file = new File(currentPhotoPath);
       Uri contentUri = Uri.fromFile(file);
       imageView.setImageURI(contentUri);
+    }
+  }
+
+  @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    if (requestCode == REQUEST_CODE_WRITE_EXTERNAL_STORAGE) {
+      if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        takePictureAddToGallery();
+      } else {
+        Toast.makeText(RequestImageActivity.this, "由于您拒绝了写入外部存储的权限，" + "拍照并保存到相册的功能无法实现", Toast.LENGTH_LONG).show();
+      }
     }
   }
 
