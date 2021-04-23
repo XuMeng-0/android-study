@@ -44,6 +44,8 @@
 
     <activity android:name=".camera.RequestImageActivity" />
 
+    <activity android:name=".requestpermission.RequestPermissionActivity" />
+
 
     <provider
         android:name="androidx.core.content.FileProvider"

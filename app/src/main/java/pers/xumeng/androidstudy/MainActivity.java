@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
+import pers.xumeng.androidstudy.requestpermission.RequestPermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-  private String[] content = {"finish and start activity", "exit application",
-          "force exit and status restore", "use camera"};
+  private String[] content = {"finish and start activity", "exit application", "force exit and status restore", "use camera", "request permission"};
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,32 +30,43 @@ public class MainActivity extends AppCompatActivity {
     lvContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Intent intent = new Intent();
-        switch (content[position]) {
-          case "finish and start activity": {
-            intent.setClass(MainActivity.this, ActivityA.class);
-          }
-          break;
-
-          case "exit application": {
-            intent.setClass(MainActivity.this, pers.xumeng.androidstudy.exit.ActivityA.class);
-          }
-          break;
-
-          case "force exit and status restore": {
-            intent.setClass(MainActivity.this, pers.xumeng.androidstudy.statusrestore.ActivityA.class);
-          }
-          break;
-
-          case "use camera": {
-            intent.setClass(MainActivity.this, RequestImageActivity.class);
-          }
-          break;
-        }
-        startActivity(intent);
+        startActivity(getTargetActivity(position));
         finish();
       }
     });
+  }
+
+  private Intent getTargetActivity(int position) {
+    Intent intent = new Intent();
+    Class<? extends AppCompatActivity> targetActivityClass = null;
+    switch (content[position]) {
+      case "finish and start activity": {
+        targetActivityClass = ActivityA.class;
+      }
+      break;
+
+      case "exit application": {
+        targetActivityClass = pers.xumeng.androidstudy.exit.ActivityA.class;
+      }
+      break;
+
+      case "force exit and status restore": {
+        targetActivityClass = pers.xumeng.androidstudy.statusrestore.ActivityA.class;
+      }
+      break;
+
+      case "use camera": {
+        targetActivityClass = RequestImageActivity.class;
+      }
+      break;
+
+      case "request permission": {
+        targetActivityClass = RequestPermissionActivity.class;
+      }
+      break;
+    }
+    assert targetActivityClass != null;
+    return intent.setClass(this, targetActivityClass);
   }
 
 }
