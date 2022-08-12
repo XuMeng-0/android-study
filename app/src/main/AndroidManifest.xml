@@ -46,6 +46,7 @@
 
         <activity android:name=".requestpermission.RequestPermissionActivity" />
 
+        <activity android:name=".navigation.bar.BottomNavigationBarActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

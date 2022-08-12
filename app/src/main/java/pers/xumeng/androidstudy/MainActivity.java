@@ -12,11 +12,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
+import pers.xumeng.androidstudy.navigation.bar.BottomNavigationBarActivity;
 import pers.xumeng.androidstudy.requestpermission.RequestPermissionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-  private String[] content = {"finish and start activity", "exit application", "force exit and status restore", "use camera", "request permission"};
+  private final String[] content = {
+      "finish and start activity",
+      "exit application",
+      "force exit and status restore",
+      "use camera",
+      "request permission",
+      "navigation bar"};
+
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
       case "request permission": {
         targetActivityClass = RequestPermissionActivity.class;
+      }
+      break;
+
+      case "navigation bar": {
+        targetActivityClass = BottomNavigationBarActivity.class;
       }
       break;
     }
