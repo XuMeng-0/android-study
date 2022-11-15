@@ -16,7 +16,9 @@ public class BottomNavigationBarActivity extends AppCompatActivity {
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.navigation_activity_bottom_navigation_bar);
+    int layoutId = R.layout.navigation_activity_bottom_navigation_bar;
+    binding = DataBindingUtil.setContentView(this, layoutId);
+    binding.mainFragmentContainer.setAdapter(new FragmentAdapter(this));
   }
 
 }
