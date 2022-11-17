@@ -22,3 +22,7 @@
 ### [拍照展示并添加到相册](https://www.jianshu.com/p/c596590b5624)
 
 拍照得到的照片保存在公共存储区域，可以通过相册查看，应用卸载仍将保留。
+
+## [底部导航栏](https://www.jianshu.com/p/961213149215)
+
+借助 BottomNavigationView 实现常见的底部导航栏效果。
