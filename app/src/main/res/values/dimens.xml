@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="textSize">20sp</dimen>
-  <dimen name="textViewPadding">10dp</dimen>
+    <dimen name="textSize">20sp</dimen>
+    <dimen name="textViewPadding">10dp</dimen>
+
+    <dimen name="text_size1">22sp</dimen>
+    <dimen name="text_size2">20sp</dimen>
+    <dimen name="text_size3">19sp</dimen>
+    <dimen name="text_size4">17sp</dimen>
+    <dimen name="text_size5">16sp</dimen>
+    <dimen name="text_size6">15sp</dimen>
+    <dimen name="text_size7">14sp</dimen>
+    <dimen name="text_size8">13sp</dimen>
+    <dimen name="text_size9">12sp</dimen>
+
+
+    <dimen name="common_margin">16dp</dimen>
+
+    <dimen name="common_padding">16dp</dimen>
+
 </resources>

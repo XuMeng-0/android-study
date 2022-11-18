@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="请选择喜爱的球类运动(多选)"
             android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
+            android:textSize="@dimen/text_size3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +26,7 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/common_margin"
             android:columnCount="3"
             android:rowCount="2"
             app:layout_constraintBottom_toTopOf="@id/single_btn_confirm"
@@ -39,7 +39,7 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:text="足球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:text="篮球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:text="乒乓球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:text="网球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:text="排球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:text="羽毛球"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size4" />
 
         </GridLayout>
 
@@ -92,11 +92,11 @@
             android:id="@+id/single_btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/common_margin"
             android:background="@color/colorPrimary"
             android:text="确定"
             android:textColor="@android:color/white"
-            android:textSize="25sp"
+            android:textSize="@dimen/text_size3"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
