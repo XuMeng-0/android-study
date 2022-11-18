@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorActivityBackground">
 
         <TextView
             android:id="@+id/single_tv_title"
@@ -27,7 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/common_margin"
+            android:background="@drawable/rounded_rectangle_corner_10_color_white"
             android:columnCount="3"
+            android:padding="@dimen/common_padding"
             android:rowCount="2"
             app:layout_constraintBottom_toTopOf="@id/single_btn_confirm"
             app:layout_constraintTop_toBottomOf="@id/single_tv_title">
@@ -93,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/common_margin"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rounded_rectangle_corner_10_color_primary"
             android:text="确定"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size3"
