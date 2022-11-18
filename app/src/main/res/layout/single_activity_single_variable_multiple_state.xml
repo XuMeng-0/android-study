@@ -42,7 +42,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:text="足球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -51,7 +53,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:text="篮球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -60,7 +64,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:text="乒乓球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -69,7 +75,9 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:text="网球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -78,7 +86,9 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:text="排球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -87,7 +97,9 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:text="羽毛球"
-                android:textSize="@dimen/text_size4" />
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/CheckBox" />
 
         </GridLayout>
 
