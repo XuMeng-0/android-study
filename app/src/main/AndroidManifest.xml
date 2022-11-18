@@ -48,6 +48,8 @@
 
         <activity android:name=".navigation.bar.BottomNavigationBarActivity" />
 
+        <activity android:name=".single.variable.multiple.state.SingleVariableMultipleStateActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="pers.xumeng.androidstudy.fileprovider"

@@ -14,6 +14,7 @@ import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
 import pers.xumeng.androidstudy.navigation.bar.BottomNavigationBarActivity;
 import pers.xumeng.androidstudy.requestpermission.RequestPermissionActivity;
+import pers.xumeng.androidstudy.single.variable.multiple.state.SingleVariableMultipleStateActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
       "force exit and status restore",
       "use camera",
       "request permission",
-      "navigation bar"};
+      "navigation bar",
+      "single variable multiple state"
+  };
 
 
   @Override
@@ -75,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
       case "navigation bar": {
         targetActivityClass = BottomNavigationBarActivity.class;
+      }
+      break;
+
+      case "single variable multiple state": {
+        targetActivityClass = SingleVariableMultipleStateActivity.class;
       }
       break;
     }
