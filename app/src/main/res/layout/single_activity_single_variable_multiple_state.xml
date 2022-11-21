@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="listener"
+            type="pers.xumeng.androidstudy.single.variable.multiple.state.SingleVariableMultipleStateActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +28,7 @@
             app:layout_constraintVertical_bias="0.2" />
 
         <GridLayout
+            android:id="@+id/single_gl_games"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/common_margin"
@@ -36,6 +40,7 @@
             app:layout_constraintTop_toBottomOf="@id/single_tv_title">
 
             <CheckBox
+                android:id="@+id/single_cb_football"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -47,6 +52,7 @@
                 android:theme="@style/CheckBox" />
 
             <CheckBox
+                android:id="@+id/single_cb_basketball"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -58,6 +64,7 @@
                 android:theme="@style/CheckBox" />
 
             <CheckBox
+                android:id="@+id/single_cb_table_tennis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -69,6 +76,7 @@
                 android:theme="@style/CheckBox" />
 
             <CheckBox
+                android:id="@+id/single_cb_tennis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -80,6 +88,7 @@
                 android:theme="@style/CheckBox" />
 
             <CheckBox
+                android:id="@+id/single_cb_volleyball"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -91,6 +100,7 @@
                 android:theme="@style/CheckBox" />
 
             <CheckBox
+                android:id="@+id/single_cb_badminton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -103,12 +113,26 @@
 
         </GridLayout>
 
+        <TextView
+            android:id="@+id/single_tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size3"
+            app:layout_constraintBottom_toTopOf="@id/single_btn_confirm"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/single_gl_games" />
+
         <Button
             android:id="@+id/single_btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/common_margin"
             android:background="@drawable/rounded_rectangle_corner_10_color_primary"
+            android:onClick="@{()->listener.confirm()}"
             android:text="确定"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size3"
