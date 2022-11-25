@@ -26,3 +26,9 @@
 ## [底部导航栏](https://www.jianshu.com/p/961213149215)
 
 借助 BottomNavigationView 实现常见的底部导航栏效果。
+
+## 单个变量保存多个状态
+
+### [单个变量保存多个状态](https://www.jianshu.com/p/1ef149fd3ecd)
+
+使用一个 byte 类型的变量保存多个 boolean 类型的值。
