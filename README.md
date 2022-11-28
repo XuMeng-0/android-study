@@ -32,3 +32,7 @@
 ### [单个变量保存多个状态](https://www.jianshu.com/p/1ef149fd3ecd)
 
 使用一个 byte 类型的变量保存多个 boolean 类型的值。
+
+### [设置复选框的颜色](https://www.jianshu.com/p/694c1744108d)
+
+使用 CheckBox 的 android:theme 属性设置复选框的选中和未选中状态的颜色。
