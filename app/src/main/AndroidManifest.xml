@@ -50,6 +50,8 @@
 
         <activity android:name=".single.variable.multiple.state.SingleVariableMultipleStateActivity" />
 
+        <activity android:name=".signature.SignatureActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="pers.xumeng.androidstudy.fileprovider"

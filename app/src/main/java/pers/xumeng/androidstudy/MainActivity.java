@@ -14,6 +14,7 @@ import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
 import pers.xumeng.androidstudy.navigation.bar.BottomNavigationBarActivity;
 import pers.xumeng.androidstudy.requestpermission.RequestPermissionActivity;
+import pers.xumeng.androidstudy.signature.SignatureActivity;
 import pers.xumeng.androidstudy.single.variable.multiple.state.SingleVariableMultipleStateActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
       "use camera",
       "request permission",
       "navigation bar",
-      "single variable multiple state"
+      "single variable multiple state",
+      "signature"
   };
 
 
@@ -83,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
       case "single variable multiple state": {
         targetActivityClass = SingleVariableMultipleStateActivity.class;
+      }
+      break;
+
+      case "signature": {
+        targetActivityClass = SignatureActivity.class;
       }
       break;
     }
