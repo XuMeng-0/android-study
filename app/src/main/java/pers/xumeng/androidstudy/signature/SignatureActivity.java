@@ -1,6 +1,7 @@
 package pers.xumeng.androidstudy.signature;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -23,6 +24,16 @@ public class SignatureActivity extends AppCompatActivity {
       actionBar.setTitle("签名控件的使用");
     }
     binding = DataBindingUtil.setContentView(this, R.layout.signature_activity_signature);
+    binding.setListener(this);
+  }
+
+
+  public void saveSignature() {
+    Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
+  }
+
+  public void clearSignature() {
+    binding.signatureSSignature.clear();
   }
 
 }

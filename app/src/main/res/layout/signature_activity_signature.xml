@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="listener"
+            type="pers.xumeng.androidstudy.signature.SignatureActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +28,7 @@
             app:layout_constraintVertical_bias="0.2" />
 
         <com.github.gcacace.signaturepad.views.SignaturePad
+            android:id="@+id/signature_s_signature"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_margin="@dimen/common_margin"
@@ -46,6 +50,7 @@
                 android:layout_marginRight="@dimen/common_margin"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_rectangle_corner_10_color_primary_border"
+                android:onClick="@{()->listener.clearSignature()}"
                 android:text="清空"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/text_size3" />
@@ -55,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:background="@drawable/rounded_rectangle_corner_10_color_primary"
+                android:onClick="@{()->listener.saveSignature()}"
                 android:text="保存"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_size3" />
