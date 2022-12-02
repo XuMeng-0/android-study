@@ -36,3 +36,7 @@
 ### [设置复选框的颜色](https://www.jianshu.com/p/694c1744108d)
 
 使用 CheckBox 的 android:theme 属性设置复选框的选中和未选中状态的颜色。
+
+## [实现签名功能](https://www.jianshu.com/p/bddc62bd4c55)
+
+使用 [gcacace / android-signaturepad](https://github.com/gcacace/android-signaturepad) 库提供的 `SignaturePad` 控件，实现清空和保存控件内容功能。
