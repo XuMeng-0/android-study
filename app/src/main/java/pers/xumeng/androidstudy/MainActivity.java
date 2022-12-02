@@ -10,6 +10,8 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashMap;
+
 import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
 import pers.xumeng.androidstudy.navigation.bar.BottomNavigationBarActivity;
@@ -19,16 +21,18 @@ import pers.xumeng.androidstudy.single.variable.multiple.state.SingleVariableMul
 
 public class MainActivity extends AppCompatActivity {
 
-  private final String[] content = {
-      "finish and start activity",
-      "exit application",
-      "force exit and status restore",
-      "use camera",
-      "request permission",
-      "navigation bar",
-      "single variable multiple state",
-      "signature"
-  };
+  private final HashMap<String, Class<? extends AppCompatActivity>> activityMap =
+      new HashMap<String, Class<? extends AppCompatActivity>>() {{
+        put("finish and start activity", ActivityA.class);
+        put("exit application", pers.xumeng.androidstudy.exit.ActivityA.class);
+        put("force exit and status restore", pers.xumeng.androidstudy.statusrestore.ActivityA.class);
+        put("use camera", RequestImageActivity.class);
+        put("request permission", RequestPermissionActivity.class);
+        put("navigation bar", BottomNavigationBarActivity.class);
+        put("single variable multiple state", SingleVariableMultipleStateActivity.class);
+        put("signature", SignatureActivity.class);
+      }};
+  private final String[] content = activityMap.keySet().toArray(new String[0]);
 
 
   @Override
@@ -43,56 +47,15 @@ public class MainActivity extends AppCompatActivity {
     lvContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        startActivity(getTargetActivity(position));
+        startActivity(buildStartTargetActivityIntent(position));
         finish();
       }
     });
   }
 
-  private Intent getTargetActivity(int position) {
+  private Intent buildStartTargetActivityIntent(int position) {
     Intent intent = new Intent();
-    Class<? extends AppCompatActivity> targetActivityClass = null;
-    switch (content[position]) {
-      case "finish and start activity": {
-        targetActivityClass = ActivityA.class;
-      }
-      break;
-
-      case "exit application": {
-        targetActivityClass = pers.xumeng.androidstudy.exit.ActivityA.class;
-      }
-      break;
-
-      case "force exit and status restore": {
-        targetActivityClass = pers.xumeng.androidstudy.statusrestore.ActivityA.class;
-      }
-      break;
-
-      case "use camera": {
-        targetActivityClass = RequestImageActivity.class;
-      }
-      break;
-
-      case "request permission": {
-        targetActivityClass = RequestPermissionActivity.class;
-      }
-      break;
-
-      case "navigation bar": {
-        targetActivityClass = BottomNavigationBarActivity.class;
-      }
-      break;
-
-      case "single variable multiple state": {
-        targetActivityClass = SingleVariableMultipleStateActivity.class;
-      }
-      break;
-
-      case "signature": {
-        targetActivityClass = SignatureActivity.class;
-      }
-      break;
-    }
+    Class<? extends AppCompatActivity> targetActivityClass = activityMap.get(content[position]);
     assert targetActivityClass != null;
     return intent.setClass(this, targetActivityClass);
   }
