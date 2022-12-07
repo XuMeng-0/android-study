@@ -52,6 +52,8 @@
 
         <activity android:name=".signature.SignatureActivity" />
 
+        <activity android:name=".open.file.another.app.OpenFileWithAnotherAppActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="pers.xumeng.androidstudy.fileprovider"
