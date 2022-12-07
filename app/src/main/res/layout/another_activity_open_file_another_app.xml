@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -7,7 +8,41 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorActivityBackground">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_margin"
+            android:background="@drawable/rounded_rectangle_corner_10_color_white"
+            android:orientation="horizontal"
+            android:padding="@dimen/common_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/common_margin"
+                android:text="文件内容"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/text_size4" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="请输入需要保存的文字"
+                android:inputType="text"
+                android:textColor="@color/color_333333"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/edit_text_cursor"
+                android:textSize="@dimen/text_size4"
+                android:theme="@style/EditText" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
