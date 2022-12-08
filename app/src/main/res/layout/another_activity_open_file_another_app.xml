@@ -41,6 +41,7 @@
                     android:textSize="@dimen/text_size4" />
 
                 <EditText
+                    android:id="@+id/another_et_file_content"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

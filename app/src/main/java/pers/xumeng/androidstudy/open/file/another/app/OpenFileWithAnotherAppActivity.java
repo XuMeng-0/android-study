@@ -8,6 +8,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import pers.xumeng.androidstudy.R;
 import pers.xumeng.androidstudy.databinding.AnotherActivityOpenFileAnotherAppBinding;
 
@@ -29,7 +33,39 @@ public class OpenFileWithAnotherAppActivity extends AppCompatActivity {
 
 
   public void save() {
-    Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
+    String content = binding.anotherEtFileContent.getText().toString();
+    if (content.isEmpty()) {
+      Toast.makeText(this, "请输入文字后再试", Toast.LENGTH_SHORT).show();
+      return;
+    }
+    boolean isSuccessful = saveStringToFile(content);
+    String message;
+    if (isSuccessful) {
+      message = "已成功保存到文件";
+    } else {
+      message = "保存到文件失败";
+    }
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+  }
+
+  private boolean saveStringToFile(String content) {
+    try {
+      File cacheDir = getExternalCacheDir();
+      File file = new File(cacheDir, "temp.txt");
+      if (!file.exists()) {
+        if (!file.createNewFile()) {
+          Toast.makeText(this, "文件创建失败", Toast.LENGTH_SHORT).show();
+        }
+      }
+      FileWriter fileWriter = new FileWriter(file);
+      fileWriter.write(content);
+      fileWriter.flush();
+      fileWriter.close();
+      return true;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return false;
   }
 
   public void openWithAnotherApp() {
