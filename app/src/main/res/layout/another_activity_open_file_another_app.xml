@@ -55,12 +55,6 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/common_margin"
-                android:background="@color/color_999999" />
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
