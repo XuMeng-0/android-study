@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
 
 import java.io.File;
@@ -77,8 +78,7 @@ public class OpenFileWithAnotherAppActivity extends AppCompatActivity {
       Toast.makeText(this, "请先将文本框的内容保存到文件再试", Toast.LENGTH_SHORT).show();
       return;
     }
-    Intent intent = new Intent(Intent.ACTION_VIEW);
-    intent.setDataAndType(Uri.fromFile(file), "text/plain");
+    Intent intent = buildViewFileIntent();
     Intent chooser = Intent.createChooser(intent, "选择打开文件的应用");
     try {
       startActivity(chooser);
@@ -93,14 +93,20 @@ public class OpenFileWithAnotherAppActivity extends AppCompatActivity {
       Toast.makeText(this, "请先将文本框的内容保存到文件再试", Toast.LENGTH_SHORT).show();
       return;
     }
-    Intent intent = new Intent(Intent.ACTION_VIEW);
-    intent.setDataAndType(Uri.fromFile(file), "text/plain");
+    Intent intent = buildViewFileIntent();
     try {
       startActivity(intent);
     } catch (ActivityNotFoundException exception) {
       Toast.makeText(this, "未找到可以打开此类文件的应用", Toast.LENGTH_SHORT).show();
       exception.printStackTrace();
     }
+  }
+
+  private Intent buildViewFileIntent() {
+    Intent intent = new Intent(Intent.ACTION_VIEW);
+    Uri contentUri = FileProvider.getUriForFile(this, "pers.xumeng.androidstudy.fileprovider", file);
+    intent.setDataAndType(contentUri, "text/plain");
+    return intent;
   }
 
 }
