@@ -104,7 +104,8 @@ public class OpenFileWithAnotherAppActivity extends AppCompatActivity {
 
   private Intent buildViewFileIntent() {
     Intent intent = new Intent(Intent.ACTION_VIEW);
-    Uri contentUri = FileProvider.getUriForFile(this, "pers.xumeng.androidstudy.fileprovider", file);
+    String fileProviderAuthority = getString(R.string.file_provider_authorities);
+    Uri contentUri = FileProvider.getUriForFile(this, fileProviderAuthority, file);
     intent.setDataAndType(contentUri, "text/plain");
     return intent;
   }

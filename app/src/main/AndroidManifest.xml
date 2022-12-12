@@ -56,7 +56,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="pers.xumeng.androidstudy.fileprovider"
+            android:authorities="@string/file_provider_authorities"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
