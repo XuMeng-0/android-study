@@ -40,3 +40,7 @@
 ## [实现签名功能](https://www.jianshu.com/p/bddc62bd4c55)
 
 使用 [gcacace / android-signaturepad](https://github.com/gcacace/android-signaturepad) 库提供的 `SignaturePad` 控件，实现清空和保存控件内容功能。
+
+## [选择其他应用打开文件](https://www.jianshu.com/p/f7bbaf90c2b7)
+
+借助隐式 `Intent` ， 实现在其他应用中浏览文件内容的功能。
