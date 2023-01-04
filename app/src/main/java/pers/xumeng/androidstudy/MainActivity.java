@@ -14,6 +14,7 @@ import java.util.HashMap;
 
 import pers.xumeng.androidstudy.camera.RequestImageActivity;
 import pers.xumeng.androidstudy.finishandstartactivity.ActivityA;
+import pers.xumeng.androidstudy.ipc.IPCActivity;
 import pers.xumeng.androidstudy.navigation.bar.BottomNavigationBarActivity;
 import pers.xumeng.androidstudy.open.file.another.app.OpenFileWithAnotherAppActivity;
 import pers.xumeng.androidstudy.requestpermission.RequestPermissionActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         put("single variable multiple state", SingleVariableMultipleStateActivity.class);
         put("signature", SignatureActivity.class);
         put("open file with another app", OpenFileWithAnotherAppActivity.class);
+        put("ipc", IPCActivity.class);
       }};
   private final String[] content = activityMap.keySet().toArray(new String[0]);
 

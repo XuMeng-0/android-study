@@ -54,6 +54,8 @@
 
         <activity android:name=".open.file.another.app.OpenFileWithAnotherAppActivity" />
 
+        <activity android:name=".ipc.IPCActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="@string/file_provider_authorities"
