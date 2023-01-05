@@ -1,6 +1,7 @@
 package pers.xumeng.androidstudy.ipc;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -22,6 +23,11 @@ public class IPCActivity extends AppCompatActivity {
       actionBar.setTitle("IPC 方式");
     }
     binding = DataBindingUtil.setContentView(this, R.layout.ipc_activity_ipc);
+    binding.setListener(this);
+  }
+
+  public void startMessengerActivity() {
+    Toast.makeText(this, "使用 Messenger 进行 IPC", Toast.LENGTH_SHORT).show();
   }
 
 }
