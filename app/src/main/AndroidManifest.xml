@@ -55,6 +55,7 @@
         <activity android:name=".open.file.another.app.OpenFileWithAnotherAppActivity" />
 
         <activity android:name=".ipc.IPCActivity" />
+        <activity android:name=".ipc.messenger.MessengerActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
