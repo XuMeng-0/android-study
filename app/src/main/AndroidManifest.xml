@@ -57,6 +57,12 @@
         <activity android:name=".ipc.IPCActivity" />
         <activity android:name=".ipc.messenger.MessengerActivity" />
 
+
+        <service
+            android:name=".ipc.messenger.MessengerService"
+            android:process=":remote" />
+
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="@string/file_provider_authorities"
