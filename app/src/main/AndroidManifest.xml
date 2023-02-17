@@ -60,7 +60,11 @@
 
         <service
             android:name=".ipc.messenger.MessengerService"
-            android:process=":remote" />
+            android:process=":remote.messenger" />
+
+        <service
+            android:name=".ipc.aidl.BookManagerService"
+            android:process=":remote.aidl" />
 
 
         <provider
