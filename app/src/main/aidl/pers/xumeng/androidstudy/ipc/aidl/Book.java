@@ -3,6 +3,8 @@ package pers.xumeng.androidstudy.ipc.aidl;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 public class Book implements Parcelable {
 
   public int id;
@@ -39,6 +41,12 @@ public class Book implements Parcelable {
   public void writeToParcel(Parcel dest, int flags) {
     dest.writeInt(id);
     dest.writeString(name);
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return "Book { id = " + id + ", name = " + name + "}";
   }
 
 }
