@@ -56,6 +56,7 @@
 
         <activity android:name=".ipc.IPCActivity" />
         <activity android:name=".ipc.messenger.MessengerActivity" />
+        <activity android:name=".ipc.aidl.BookManagerActivity" />
 
 
         <service
