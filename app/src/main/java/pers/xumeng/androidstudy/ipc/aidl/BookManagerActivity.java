@@ -32,6 +32,13 @@ public class BookManagerActivity extends AppCompatActivity {
         List<Book> bookList = bookManager.getBookList();
         LogUtil.e(TAG, "list type : " + bookList.getClass().getCanonicalName());
         LogUtil.e(TAG, "book list : " + bookList);
+
+        Book newBook = new Book(3, "Android 开发艺术探索");
+        bookManager.addBook(newBook);
+        LogUtil.e(TAG, "add book : " + newBook);
+
+        bookList = bookManager.getBookList();
+        LogUtil.e(TAG, "book list : " + bookList);
       } catch (RemoteException e) {
         e.printStackTrace();
       }
