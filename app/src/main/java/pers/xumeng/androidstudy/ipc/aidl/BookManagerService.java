@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
 
@@ -19,6 +20,7 @@ public class BookManagerService extends Service {
   private final Binder binder = new IBookManager.Stub() {
     @Override
     public List<Book> getBookList() throws RemoteException {
+      SystemClock.sleep(5000);
       return bookList;
     }
 
