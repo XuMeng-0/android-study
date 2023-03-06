@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -52,20 +53,26 @@ public class BookManagerActivity extends AppCompatActivity {
 
 
   public void invokeRemoteTimeConsumingMethod() {
-    try {
-      List<Book> bookList = bookManager.getBookList();
-      LogUtil.e(TAG, "list type : " + bookList.getClass().getCanonicalName());
-      LogUtil.e(TAG, "book list : " + bookList);
+    Toast.makeText(this, "调用服务端耗时方法", Toast.LENGTH_SHORT).show();
+    new Thread(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          List<Book> bookList = bookManager.getBookList();
+          LogUtil.e(TAG, "list type : " + bookList.getClass().getCanonicalName());
+          LogUtil.e(TAG, "book list : " + bookList);
 
-      Book newBook = new Book(3, "Android 开发艺术探索");
-      bookManager.addBook(newBook);
-      LogUtil.e(TAG, "add book : " + newBook);
+          Book newBook = new Book(3, "Android 开发艺术探索");
+          bookManager.addBook(newBook);
+          LogUtil.e(TAG, "add book : " + newBook);
 
-      bookList = bookManager.getBookList();
-      LogUtil.e(TAG, "book list : " + bookList);
-    } catch (RemoteException e) {
-      e.printStackTrace();
-    }
+          bookList = bookManager.getBookList();
+          LogUtil.e(TAG, "book list : " + bookList);
+        } catch (RemoteException e) {
+          e.printStackTrace();
+        }
+      }
+    }).start();
   }
 
   @Override
