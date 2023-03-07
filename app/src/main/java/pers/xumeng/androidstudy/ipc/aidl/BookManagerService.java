@@ -2,6 +2,7 @@ package pers.xumeng.androidstudy.ipc.aidl;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -40,6 +41,10 @@ public class BookManagerService extends Service {
   @Nullable
   @Override
   public IBinder onBind(Intent intent) {
+    int checkResult = checkCallingOrSelfPermission("pers.xumeng.androidstudy.permission.ACCESS_BOOK_SERVICE");
+    if (checkResult == PackageManager.PERMISSION_DENIED) {
+      return null;
+    }
     return binder;
   }
 

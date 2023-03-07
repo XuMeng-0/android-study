@@ -85,4 +85,8 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <permission
+        android:name="pers.xumeng.androidstudy.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+
 </manifest>

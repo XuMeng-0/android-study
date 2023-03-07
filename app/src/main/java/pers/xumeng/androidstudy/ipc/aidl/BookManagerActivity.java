@@ -53,6 +53,10 @@ public class BookManagerActivity extends AppCompatActivity {
 
 
   public void invokeRemoteTimeConsumingMethod() {
+    if (bookManager == null) {
+      Toast.makeText(this, "尚未绑定服务", Toast.LENGTH_SHORT).show();
+      return;
+    }
     Toast.makeText(this, "调用服务端耗时方法", Toast.LENGTH_SHORT).show();
     new Thread(new Runnable() {
       @Override
