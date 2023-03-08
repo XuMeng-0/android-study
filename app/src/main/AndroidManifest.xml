@@ -57,6 +57,7 @@
         <activity android:name=".ipc.IPCActivity" />
         <activity android:name=".ipc.messenger.MessengerActivity" />
         <activity android:name=".ipc.aidl.BookManagerActivity" />
+        <activity android:name=".ipc.content.provider.BookProviderVisitActivity" />
 
 
         <service
@@ -77,6 +78,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <provider
+            android:name=".ipc.content.provider.BookProvider"
+            android:authorities="pers.xumeng.androidstudy.book.provider"
+            android:process=":provider" />
     </application>
 
     <uses-feature

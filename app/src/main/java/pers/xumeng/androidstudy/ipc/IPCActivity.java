@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import pers.xumeng.androidstudy.R;
 import pers.xumeng.androidstudy.databinding.IpcActivityIpcBinding;
 import pers.xumeng.androidstudy.ipc.aidl.BookManagerActivity;
+import pers.xumeng.androidstudy.ipc.content.provider.BookProviderVisitActivity;
 import pers.xumeng.androidstudy.ipc.messenger.MessengerActivity;
 
 public class IPCActivity extends AppCompatActivity {
@@ -34,6 +35,10 @@ public class IPCActivity extends AppCompatActivity {
 
   public void startBookManagerActivity() {
     startActivity(new Intent(this, BookManagerActivity.class));
+  }
+
+  public void startBookProviderVisitActivity() {
+    startActivity(new Intent(this, BookProviderVisitActivity.class));
   }
 
 }
