@@ -13,10 +13,9 @@ import pers.xumeng.androidstudy.databinding.IpcActivityIpcBinding;
 import pers.xumeng.androidstudy.ipc.aidl.BookManagerActivity;
 import pers.xumeng.androidstudy.ipc.content.provider.BookProviderVisitActivity;
 import pers.xumeng.androidstudy.ipc.messenger.MessengerActivity;
+import pers.xumeng.androidstudy.ipc.socket.TCPClientActivity;
 
 public class IPCActivity extends AppCompatActivity {
-
-  private IpcActivityIpcBinding binding;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +24,7 @@ public class IPCActivity extends AppCompatActivity {
     if (actionBar != null) {
       actionBar.setTitle("IPC 方式");
     }
-    binding = DataBindingUtil.setContentView(this, R.layout.ipc_activity_ipc);
+    IpcActivityIpcBinding binding = DataBindingUtil.setContentView(this, R.layout.ipc_activity_ipc);
     binding.setListener(this);
   }
 
@@ -39,6 +38,10 @@ public class IPCActivity extends AppCompatActivity {
 
   public void startBookProviderVisitActivity() {
     startActivity(new Intent(this, BookProviderVisitActivity.class));
+  }
+
+  public void startTCPClientActivity() {
+    startActivity(new Intent(this, TCPClientActivity.class));
   }
 
 }
