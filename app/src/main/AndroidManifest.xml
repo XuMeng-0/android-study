@@ -69,6 +69,9 @@
             android:name=".ipc.aidl.BookManagerService"
             android:process=":remote.aidl" />
 
+        <service
+            android:name=".ipc.socket.TCPServerService"
+            android:process=":socket" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -90,6 +93,8 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="pers.xumeng.androidstudy.permission.ACCESS_BOOK_SERVICE" />
 
