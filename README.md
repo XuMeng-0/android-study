@@ -44,3 +44,9 @@
 ## [选择其他应用打开文件](https://www.jianshu.com/p/f7bbaf90c2b7)
 
 借助隐式 `Intent` ， 实现在其他应用中浏览文件内容的功能。
+
+## [IPC](https://www.jianshu.com/p/795553849acf)
+- Messenger
+- AIDL
+- ContentProvider
+- Socket
