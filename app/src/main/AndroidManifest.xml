@@ -9,7 +9,8 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <!--
         android:requestLegacyExternalStorage="true"
         在 Android 10 (API 29) 出于安全性的考虑，推出了 分区存储 这一新的存储范例
