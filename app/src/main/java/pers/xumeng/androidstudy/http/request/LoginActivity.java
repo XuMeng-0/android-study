@@ -1,6 +1,7 @@
 package pers.xumeng.androidstudy.http.request;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -22,7 +23,12 @@ public class LoginActivity extends AppCompatActivity {
       actionBar.setTitle("HTTP 通信方式");
     }
     binding = DataBindingUtil.setContentView(this, R.layout.http_activity_login);
+    binding.setListener(this);
   }
 
+
+  public void login() {
+    Toast.makeText(this, "点击登录按钮", Toast.LENGTH_SHORT).show();
+  }
 
 }
