@@ -60,6 +60,8 @@
         <activity android:name=".ipc.content.provider.BookProviderVisitActivity" />
         <activity android:name=".ipc.socket.TCPClientActivity" />
 
+        <activity android:name=".http.request.LoginActivity" />
+
 
         <service
             android:name=".ipc.messenger.MessengerService"
