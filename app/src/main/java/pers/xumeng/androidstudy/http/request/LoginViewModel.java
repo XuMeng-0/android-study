@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import pers.xumeng.androidstudy.http.request.scheme1.UserRepository;
+
 public class LoginViewModel extends ViewModel {
 
   private final MutableLiveData<Result<String>> loginResult = new MutableLiveData<>();

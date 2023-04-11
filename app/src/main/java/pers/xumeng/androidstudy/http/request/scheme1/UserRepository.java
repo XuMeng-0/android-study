@@ -1,7 +1,9 @@
-package pers.xumeng.androidstudy.http.request;
+package pers.xumeng.androidstudy.http.request.scheme1;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+
+import pers.xumeng.androidstudy.http.request.Result;
 
 public class UserRepository {
 

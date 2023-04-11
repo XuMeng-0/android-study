@@ -1,4 +1,4 @@
-package pers.xumeng.androidstudy.http.request;
+package pers.xumeng.androidstudy.http.request.scheme1;
 
 import com.google.gson.JsonObject;
 

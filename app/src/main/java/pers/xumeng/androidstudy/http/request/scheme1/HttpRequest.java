@@ -1,4 +1,4 @@
-package pers.xumeng.androidstudy.http.request;
+package pers.xumeng.androidstudy.http.request.scheme1;
 
 import okhttp3.Callback;
 import okhttp3.MediaType;
