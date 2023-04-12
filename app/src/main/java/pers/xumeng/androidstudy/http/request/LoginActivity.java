@@ -64,4 +64,11 @@ public class LoginActivity extends AppCompatActivity {
     viewModel.login2(userName, password);
   }
 
+  public void login3() {
+    String userName = binding.userLoginEtAccount.getText().toString();
+    String password = binding.userLoginEtPassword.getText().toString();
+
+    viewModel.login3(userName, password);
+  }
+
 }

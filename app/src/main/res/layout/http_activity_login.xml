@@ -77,6 +77,19 @@
             android:text="登录2"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size3"
+            app:layout_constraintBottom_toTopOf="@id/user_login_btn_account_login3" />
+
+        <Button
+            android:id="@+id/user_login_btn_account_login3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_margin"
+            android:background="@drawable/rounded_rectangle_corner_10_color_primary"
+            android:onClick="@{()->listener.login3()}"
+            android:text="登录3"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size3"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
