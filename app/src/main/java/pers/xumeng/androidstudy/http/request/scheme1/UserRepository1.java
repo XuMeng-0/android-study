@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData;
 
 import pers.xumeng.androidstudy.http.request.Result;
 
-public class UserRepository {
+public class UserRepository1 {
 
   private final MutableLiveData<String> message;
 
-  public UserRepository(MutableLiveData<String> message) {
+  public UserRepository1(MutableLiveData<String> message) {
     this.message = message;
   }
 
@@ -22,7 +22,7 @@ public class UserRepository {
 
       @Override
       public void onFailure(String message) {
-        UserRepository.this.message.postValue(message);
+        UserRepository1.this.message.postValue(message);
       }
     });
   }

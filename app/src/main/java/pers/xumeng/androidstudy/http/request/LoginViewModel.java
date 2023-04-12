@@ -3,14 +3,13 @@ package pers.xumeng.androidstudy.http.request;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import pers.xumeng.androidstudy.http.request.scheme1.UserRepository;
+import pers.xumeng.androidstudy.http.request.scheme1.UserRepository1;
 
 public class LoginViewModel extends ViewModel {
 
   private final MutableLiveData<Result<String>> loginResult = new MutableLiveData<>();
   private final MutableLiveData<String> message = new MutableLiveData<>();
-  private final UserRepository repository = new UserRepository(message);
+  private final UserRepository1 repository1 = new UserRepository1(message);
 
 
   public LiveData<Result<String>> getLoginResult() {
@@ -21,13 +20,13 @@ public class LoginViewModel extends ViewModel {
     return message;
   }
 
-  public void login(String userName, String password) {
+  public void login1(String userName, String password) {
     if (userName.isEmpty() || password.isEmpty()) {
       message.setValue("请填写账号或密码");
       return;
     }
 
-    repository.login(userName, password, loginResult);
+    repository1.login(userName, password, loginResult);
   }
 
 }
