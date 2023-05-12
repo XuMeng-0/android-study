@@ -50,3 +50,8 @@
 - AIDL
 - ContentProvider
 - Socket
+
+## HTTP 访问网络
+- [方案一 OkHttp](https://www.jianshu.com/p/246021fa050d)
+- [方案二 OkHttp + Retrofit](https://www.jianshu.com/p/9c3432bbcc57)
+- [方案三 OkHttp + Retrofit + RxJava](https://www.jianshu.com/p/f449feacce62)
